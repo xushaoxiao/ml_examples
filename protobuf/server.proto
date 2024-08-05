@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package server;
+
+
+service Server {
+  rpc GetServerInfo(ServerInfoRequest) returns (ServerInfoResponse) {}
+}
+
+// The request message containing
+// the information any you want to tell the server.
+message ServerInfoRequest {
+}
+
+// The response message containing the server information.
+message ServerInfoResponse {
+  // The server name.
+  string server_name = 1;
+  // The server version.
+  string server_version = 2;
+  // The server status.
+  string server_status = 3;
+  // The server start time.
+  string server_start_time = 4;
+  // The server uptime.
+  string server_uptime = 5;
+}

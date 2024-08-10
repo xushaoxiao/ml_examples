@@ -1,0 +1,52 @@
+[deveploment]
+dynaconf_merge = true
+tool.poetry = "yes"
+
+[deveploment.db]
+echo = true
+
+[deveploment.server]
+log_level = "debug"
+reload = true
+cors_origins = ["http://localhost:3000", "http://localhost:8000"]
+
+[production]
+dynaconf_merge = true
+
+[production.db]
+echo = false
+
+[production.server]
+log_level = "info"
+reload = false
+
+[testing]
+dynaconf_merge = true
+
+[testing.server]
+cors_origins = ["http://localhost:3000", "http://localhost:8000"]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$'
+extend-exclude = '''
+    /(
+        \.eggs
+        | \.git
+        | \.hg
+        | \.mypy_cache
+        | \.tox
+        | \.venv
+        | \.svn
+        | _build
+        | buck-out
+        | build
+        | dist
+        | profiling
+        | src/grpc_gen/*.py
+    )/
+'''
